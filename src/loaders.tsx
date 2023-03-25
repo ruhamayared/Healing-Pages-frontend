@@ -1,6 +1,6 @@
 const URL = "https://healing-pages.onrender.com/entries"
 
-//Get all entries for index route
+//Get all entries for Index route
 export const indexLoader = async () => {
     const response = await fetch(URL)
     const entries = await response.json()
@@ -9,7 +9,7 @@ export const indexLoader = async () => {
 
 //Get a single entry for Show route
 export const showLoader = async ({ params }: any) => {
-    const response = await fetch(URL + `/entrys/${params.id}/`)
+    const response = await fetch(URL + `/${params.id}`)
     const entry = await response.json()
     return entry
 }

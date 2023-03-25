@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
 
 
-// Define the Entry model as a TypeScript interface, which mirrors the Go Entry struct
+// Define the Entry model as a TypeScript interface, which mirrors the Go Entry struct.
 export interface EntryModel {
-    id: number
-    createdAt: Date
-    updatedAt: Date
-    deletedAt?: Date
+    ID: number
+    CreatedAt: Date
+    UpdatedAt: Date
+    DeletedAt?: Date
     entry: string
 }
 
@@ -20,12 +20,13 @@ function Entry({ entryData }: EntryProps) {
 
     return (
         <div>
-            <Link to={`/entry/${entryData.id}`}>
+            <Link to={`/entry/${entryData.ID}`}>
                 <h1>{entryData.entry}</h1>
             </Link>
-            <small>Created at: {new Date(entryData.createdAt).toLocaleString()}</small>
+            <small>Created at: {new Date(entryData.CreatedAt).toLocaleString()}</small>
         </div>
     )
+
 }
 
 export default Entry
