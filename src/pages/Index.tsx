@@ -8,14 +8,15 @@ const Index = () => {
     // For each Entry in the array render an Entry component
     return (
         <>
+            {entries.map((entry: EntryModel) => (
+                <Entry entryData={entry} key={entry.ID} />
+            ))}
+
             <h2>Create a New Journal Entry</h2>
             <Form action="/create" method="post">
                 <input type="text" name="entry" placeholder="What's on your mind?" />
                 <button>Add a New Entry</button>
             </Form>
-            {entries.map((entry: EntryModel) => (
-                <Entry entryData={entry} key={entry.ID} />
-            ))}
         </>
     )
 }

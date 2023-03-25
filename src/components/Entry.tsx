@@ -17,13 +17,15 @@ interface EntryProps {
 
 // The Entry component accepts an entryData prop and displays the entry's content and creation date.
 function Entry({ entryData }: EntryProps) {
+    const entryPreview = entryData.entry.split(' ').slice(0, 30).join(' ')
 
     return (
-        <div>
+        <div className="entry">
+            <small className="entry-date">{new Date(entryData.CreatedAt).toLocaleDateString()}</small>
             <Link to={`/entry/${entryData.ID}`}>
-                <h1>{entryData.entry}</h1>
+                <p className="entry-content">{entryPreview}</p>
             </Link>
-            <small>Created at: {new Date(entryData.CreatedAt).toLocaleString()}</small>
+
         </div>
     )
 
