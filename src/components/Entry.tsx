@@ -1,7 +1,8 @@
-import React from 'react'
+import { Link } from "react-router-dom"
+
 
 // Define the Entry model as a TypeScript interface, which mirrors the Go Entry struct
-interface EntryModel {
+export interface EntryModel {
     id: number
     createdAt: Date
     updatedAt: Date
@@ -15,14 +16,16 @@ interface EntryProps {
 }
 
 // The Entry component accepts an entryData prop and displays the entry's content and creation date.
-const Entry: React.FC<EntryProps> = ({ entryData }) => {
+function Entry({ entryData }: EntryProps) {
+
     return (
         <div>
-            <h1>Entry</h1>
-            <p>{entryData.entry}</p>
+            <Link to={`/entry/${entryData.id}`}>
+                <h1>{entryData.entry}</h1>
+            </Link>
             <small>Created at: {new Date(entryData.createdAt).toLocaleString()}</small>
         </div>
-    );
-};
+    )
+}
 
 export default Entry
