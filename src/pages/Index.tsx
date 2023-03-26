@@ -1,6 +1,6 @@
 import Entry, { EntryModel } from "../components/Entry"
 import { useLoaderData } from "react-router-dom"
-import { Form } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const Index = () => {
     const entries = useLoaderData() as EntryModel[]
@@ -12,11 +12,9 @@ const Index = () => {
                 <Entry entryData={entry} key={entry.ID} />
             ))}
 
-            <h2>Create a New Journal Entry</h2>
-            <Form action="/create" method="post">
-                <input type="text" name="entry" placeholder="What's on your mind?" />
-                <button>Add a New Entry</button>
-            </Form>
+            <Link to="/newentry">Write a New Entry</Link>
+
+
         </>
     )
 }

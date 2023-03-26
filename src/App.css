@@ -1,6 +1,9 @@
 /* Header  */
 .header {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 3.2em;
   background-color: lavender;
+  margin-bottom: 2rem;
 }
 
 /* Index Page */
@@ -8,6 +11,8 @@
   display: flex;
   align-items: center;
   margin: 0 auto;
+  width: 90%;
+  padding: 1rem;
 }
 
 .entry-content {
@@ -16,13 +21,41 @@
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
-  width: 90%;
 }
-
-
 
 .entry-date {
   font-size: 0.8rem;
   color: #999;
   padding-right: 10px;
+}
+
+/* Create Form */
+.create-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.add-input {
+  width: 80%;
+  height: 70vh;
+  font-size: 1rem;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.add-btn {
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+
+input[type="text"]::placeholder {
+  color: #999;
+  font-style: italic;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 1rem;
+  left: 0.5rem;
+  transform: translateY(-50%);
 }

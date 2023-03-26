@@ -4,6 +4,7 @@ import { indexLoader, showLoader } from "./loaders"
 import { CreateAction, UpdateAction, DeleteAction } from "./actions"
 import Index from "./pages/Index"
 import Show from "./pages/Show"
+import CreateEntryForm from "./pages/CreateEntryForm"
 
 const router = createBrowserRouter(createRoutesFromElements(
     <>
@@ -11,6 +12,7 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route path="" element={<Index />} loader={indexLoader} />
             <Route path="entry/:id" element={<Show />} loader={showLoader} />
             <Route path="create" action={CreateAction} />
+            <Route path="/newentry" element={<CreateEntryForm />} />
             <Route path="update/:id" action={UpdateAction} />
             <Route path="delete/:id" action={DeleteAction} />
         </Route>
