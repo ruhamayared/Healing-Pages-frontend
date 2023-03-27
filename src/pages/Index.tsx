@@ -10,6 +10,10 @@ const Index = () => {
     return (
         <>
             <Header />
+            <div className="new-entry-btn-container">
+                <Link to="/newentry" className="new-entry-btn">Write a New Entry</Link>
+            </div>
+
             <h2>My Journal Entries</h2>
             <div className="entries">
                 {entries.sort((a: any, b: any) => b.ID - a.ID).map((entry: EntryModel) => (
@@ -17,9 +21,6 @@ const Index = () => {
                 ))}
             </div>
 
-            <div className="new-entry-btn-container">
-                <Link to="/newentry" className="new-entry-btn">Write a New Entry</Link>
-            </div>
 
 
         </>

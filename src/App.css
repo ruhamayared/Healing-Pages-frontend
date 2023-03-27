@@ -1,11 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Merienda');
+
 .App {
   height: 100vh;
 }
 
-body {
+:root {
   background-image: url("https://i.imgur.com/DfkO5ad.jpg");
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Set the body to a relative position so the pseudo-element is positioned accordingly */
+  position: relative;
+
+  /* Set the root's margin to 0 to prevent any unwanted space around it */
+  margin: 0;
+  min-height: 100vh;
 }
+
+:root::before {
+  /* Create a content box for the pseudo-element */
+  content: "";
+
+  /* Set the second background (top layer) with transparency */
+  background-color: rgb(230, 230, 250, 0.5);
+
+  /* Position the pseudo-element on top of the body */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+
+  /* Set a z-index to ensure the pseudo-element stays below the actual content */
+  z-index: -1;
+}
+
 
 .btn {
   display: inline-block;
@@ -15,6 +46,7 @@ body {
   text-align: center;
   text-decoration: none;
   font-size: 16px;
+  font-family: 'Merienda';
   cursor: pointer;
   border: none;
   border-radius: 5px;
@@ -25,10 +57,13 @@ body {
 .header {
   display: flex;
   align-items: center;
-  font-size: 3.2em;
-  background-color: lavender;
-  padding: 0.5rem;
+  font-size: 3rem;
+  font-family: 'Merienda';
+  background-color: rgba(241, 230, 250, 0.8);
+  padding: 0.9rem;
   margin-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 3rem;
 }
 
 .link-btn-container {
@@ -45,6 +80,7 @@ body {
   text-align: center;
   text-decoration: none;
   font-size: 16px;
+  font-family: 'Merienda';
   cursor: pointer;
   border: none;
   border-radius: 5px;
@@ -61,6 +97,7 @@ body {
 /* Index Page */
 h2 {
   font-size: 1.7rem;
+  font-family: 'Merienda';
   margin-bottom: 1.2rem;
   margin-left: 5rem;
 }
@@ -68,8 +105,8 @@ h2 {
 .entry {
   display: flex;
   align-items: center;
-  margin: 0 auto;
-  width: 85%;
+  margin-left: 6rem;
+  width: 55%;
   padding: 0.7rem;
   font-size: 1.2em;
 }
@@ -90,8 +127,11 @@ h2 {
 
 .new-entry-btn-container {
   margin-top: 20px;
+  margin-left: 6rem;
+  margin-bottom: 20px;
+  width: 55%;
   display: flex;
-  justify-content: center;
+  justify-content: right;
 }
 
 .new-entry-btn {
@@ -107,11 +147,16 @@ h2 {
   border-radius: 5px;
 }
 
+small {
+  font-family: 'Merienda';
+}
+
 
 /* Create Form & Update Form */
 .form {
   display: flex;
   justify-content: center;
+  width: 60%;
   align-items: center;
   flex-direction: row;
 }
@@ -142,8 +187,8 @@ input[type="text"]::placeholder {
 
 /* Show Page */
 .content {
-  max-width: 80%;
-  margin: 0 auto;
+  max-width: 55%;
+  margin-left: 6rem;
   padding: 2rem;
 }
 
