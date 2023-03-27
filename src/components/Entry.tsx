@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom"
 
-
 // Define the Entry model as a TypeScript interface, which mirrors the Go Entry struct.
 export interface EntryModel {
     ID: number
