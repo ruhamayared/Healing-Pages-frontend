@@ -1,12 +1,15 @@
 import { Form } from "react-router-dom"
+import HeaderBackBtn from "../components/HeaderBackBtn"
 
 const CreateEntryForm = () => {
     return (
         <>
-            <div className="create-form">
+            <HeaderBackBtn />
+
+            <div className="form">
                 <Form action="/create" method="post">
-                    <input className="add-input" type="text" name="entry" placeholder="What's on your mind?" />
-                    <button className="add-btn">Add a New Entry</button>
+                    <input className="input" type="text" name="entry" placeholder="What's on your mind..." />
+                    <button className="btn">Add a New Journal Entry</button>
                 </Form>
             </div>
         </>

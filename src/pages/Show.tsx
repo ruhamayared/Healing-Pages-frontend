@@ -1,34 +1,33 @@
 import { Link, useLoaderData, Form } from "react-router-dom"
 import { EntryModel } from "../components/Entry"
+import HeaderBackBtn from "../components/HeaderBackBtn"
 
-// Destructuring the props needed to get our post, including router prop match
 const Show = () => {
     const entry = useLoaderData() as EntryModel
 
     return (
-        <div>
-            <small>Created at: {new Date(entry.CreatedAt).toLocaleString()}
-            </small>
-            <h1>{entry.entry}</h1>
+        <>
+            <HeaderBackBtn />
 
-            <h2>Update your Journal Entry</h2>
-            <Form action={`/update/${entry.ID}`} method="post">
-                <input
-                    type="text"
-                    name="entry"
-                    defaultValue={entry.entry}
-                />
-                <button>Update Journal Entry</button>
-            </Form>
 
-            <Form action={`/delete/${entry.ID}`} method="post">
-                <button>Delete Journal Entry</button>
-            </Form>
+            <div className="content">
+                <div>
+                    <small>Created at: {new Date(entry.CreatedAt).toLocaleString()}
+                    </small>
+                    <p>{entry.entry}</p>
 
-            <Link to="/">
-                <button>Go Back</button>
-            </Link>
-        </div>
+                    <div className="btn-container">
+                        <Link to={`/updateentry/${entry.ID}`} className="btn">Update this Entry</Link>
+
+                        <Form action={`/delete/${entry.ID}`} method="post">
+                            <button className="btn">Delete Journal Entry</button>
+                        </Form>
+                    </div>
+
+
+                </div>
+            </div>
+        </>
     )
 }
 

@@ -1,6 +1,7 @@
 import Entry, { EntryModel } from "../components/Entry"
 import { useLoaderData } from "react-router-dom"
 import { Link } from "react-router-dom"
+import Header from "../components/Header"
 
 const Index = () => {
     const entries = useLoaderData() as EntryModel[]
@@ -8,11 +9,17 @@ const Index = () => {
     // For each Entry in the array render an Entry component
     return (
         <>
-            {entries.map((entry: EntryModel) => (
-                <Entry entryData={entry} key={entry.ID} />
-            ))}
+            <Header />
+            <h2>My Journal Entries</h2>
+            <div className="entries">
+                {entries.sort((a: any, b: any) => b.ID - a.ID).map((entry: EntryModel) => (
+                    <Entry entryData={entry} key={entry.ID} />
+                ))}
+            </div>
 
-            <Link to="/newentry">Write a New Entry</Link>
+            <div className="new-entry-btn-container">
+                <Link to="/newentry" className="new-entry-btn">Write a New Entry</Link>
+            </div>
 
 
         </>
