@@ -18,30 +18,37 @@
 
 // export default CreateEntryForm
 
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import HeaderBackBtn from "../components/HeaderBackBtn";
-import SimpleMDEEditor from "react-simplemde-editor";
-import "easymde/dist/easymde.min.css"; // import the required styles
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import HeaderBackBtn from '../components/HeaderBackBtn';
+import Quill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import { CreateAction } from '../actions';
 
-const CreateEntryForm = () => {
-    const [entryContent, setEntryContent] = useState("");
+interface FormDataWrapper {
+    get: (key: string) => string;
+}
+
+interface CreateActionParams {
+    request: {
+        formData: () => FormDataWrapper;
+    };
+}
+
+const CreateEntryForm: React.FC = () => {
+    const [entry, setEntry] = useState<string>('');
     const navigate = useNavigate();
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    const handleChange: (content: string, delta: any, source: any, editor: any) => void = (value) => {
+        setEntry(value);
+    };
+
+    const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
-
-        // Send request to backend
-        await fetch("/create", {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ entry: entryContent }),
+        await CreateAction({
+            request: { formData: () => ({ get: (key: string) => entry }) },
         });
-
-        // Redirect back to Index page
-        navigate("/");
+        navigate('/');
     };
 
     return (
@@ -50,12 +57,17 @@ const CreateEntryForm = () => {
 
             <div className="form">
                 <form onSubmit={handleSubmit}>
-                    <SimpleMDEEditor
-                        value={entryContent}
-                        onChange={(value) => setEntryContent(value)}
-                        options={{ placeholder: "What's on your mind..." }}
+                    <Quill
+                        modules={{ toolbar: true }}
+                        theme="snow"
+                        className="input"
+                        value={entry}
+                        onChange={handleChange}
+                        placeholder="What's on your mind..."
                     />
-                    <button className="btn">Add a New Journal Entry</button>
+                    <button className="btn" type="submit">
+                        Add a New Journal Entry
+                    </button>
                 </form>
             </div>
         </>

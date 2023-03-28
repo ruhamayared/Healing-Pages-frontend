@@ -2,6 +2,7 @@ import Entry, { EntryModel } from "../components/Entry"
 import { useLoaderData } from "react-router-dom"
 import { Link } from "react-router-dom"
 import Header from "../components/Header"
+import parser from "html-react-parser"
 
 const Index = () => {
     const entries = useLoaderData() as EntryModel[]
