@@ -14,7 +14,9 @@ const Show = () => {
                 <div>
                     <small>Created at: {new Date(entry.CreatedAt).toLocaleString()}
                     </small>
-                    <p>{entry.entry}</p>
+                    <div
+                        dangerouslySetInnerHTML={{ __html: entry.entry }}
+                    />
 
                     <div className="btn-container">
                         <Link to={`/updateentry/${entry.ID}`} className="btn">Update this Entry</Link>

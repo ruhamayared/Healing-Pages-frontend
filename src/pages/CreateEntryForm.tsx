@@ -1,55 +1,31 @@
-// import { Form } from "react-router-dom"
-// import HeaderBackBtn from "../components/HeaderBackBtn"
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import HeaderBackBtn from '../components/HeaderBackBtn'
+import Quill from 'react-quill'
+import 'react-quill/dist/quill.snow.css'
+import { CreateAction } from '../actions'
 
-// const CreateEntryForm = () => {
-//     return (
-//         <>
-//             <HeaderBackBtn />
-
-//             <div className="form">
-//                 <Form action="/create" method="post">
-//                     <input className="input" type="text" name="entry" placeholder="What's on your mind..." />
-//                     <button className="btn">Add a New Journal Entry</button>
-//                 </Form>
-//             </div>
-//         </>
-//     )
-// }
-
-// export default CreateEntryForm
-
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import HeaderBackBtn from '../components/HeaderBackBtn';
-import Quill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-import { CreateAction } from '../actions';
-
-interface FormDataWrapper {
-    get: (key: string) => string;
-}
-
-interface CreateActionParams {
-    request: {
-        formData: () => FormDataWrapper;
-    };
-}
-
+// Define the CreateEntryForm component
 const CreateEntryForm: React.FC = () => {
-    const [entry, setEntry] = useState<string>('');
-    const navigate = useNavigate();
+    // Declare state variable to store the entry content
+    const [entry, setEntry] = useState<string>('')
+    // Create a navigate function to navigate between routes
+    const navigate = useNavigate()
 
+    // Handle changes in the Quill editor and update the entry state
     const handleChange: (content: string, delta: any, source: any, editor: any) => void = (value) => {
-        setEntry(value);
-    };
+        setEntry(value)
+    }
 
+    // Handle form submission and create a new journal entry
     const handleSubmit = async (event: React.FormEvent) => {
-        event.preventDefault();
+        event.preventDefault()
         await CreateAction({
             request: { formData: () => ({ get: (key: string) => entry }) },
-        });
-        navigate('/');
-    };
+        })
+        // Navigate to the index page after creating the entry
+        navigate('/')
+    }
 
     return (
         <>
@@ -74,4 +50,4 @@ const CreateEntryForm: React.FC = () => {
     );
 };
 
-export default CreateEntryForm;
+export default CreateEntryForm

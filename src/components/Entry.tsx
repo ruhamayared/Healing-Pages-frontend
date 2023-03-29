@@ -22,9 +22,11 @@ function Entry({ entryData }: EntryProps) {
         <div className="entry">
             <small className="entry-date">{new Date(entryData.CreatedAt).toLocaleDateString()}</small>
             <Link to={`/entry/${entryData.ID}`}>
-                <p className="entry-content">{entryPreview}</p>
+                <div
+                    className="entry-content"
+                    dangerouslySetInnerHTML={{ __html: entryPreview }}
+                />
             </Link>
-
         </div>
     )
 
