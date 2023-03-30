@@ -40,7 +40,7 @@ const UpdateEntryForm = () => {
 
             <h2>Update your journal entry.</h2>
             <div className="form">
-                <Form onSubmit={handleSubmit}>
+                <Form className="create-form" onSubmit={handleSubmit}>
                     <Quill
                         modules={{ toolbar: true }}
                         theme="snow"
@@ -48,7 +48,7 @@ const UpdateEntryForm = () => {
                         value={updatedEntry}
                         onChange={handleChange}
                     />
-                    <button className="btn">Update Journal Entry</button>
+                    <button className="add-btn">Update Journal Entry</button>
                 </Form>
             </div>
         </>

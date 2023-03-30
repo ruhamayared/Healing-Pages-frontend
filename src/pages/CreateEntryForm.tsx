@@ -32,7 +32,7 @@ const CreateEntryForm: React.FC = () => {
             <HeaderBackBtn />
 
             <div className="form">
-                <form onSubmit={handleSubmit}>
+                <form className="create-form" onSubmit={handleSubmit}>
                     <Quill
                         modules={{ toolbar: true }}
                         theme="snow"
@@ -41,7 +41,7 @@ const CreateEntryForm: React.FC = () => {
                         onChange={handleChange}
                         placeholder="What's on your mind..."
                     />
-                    <button className="btn" type="submit">
+                    <button className="add-btn" type="submit">
                         Add a New Journal Entry
                     </button>
                 </form>

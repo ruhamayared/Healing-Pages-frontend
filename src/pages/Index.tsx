@@ -13,12 +13,13 @@ const Index = () => {
             <div className="new-entry-btn-container">
                 <Link to="/newentry" className="new-entry-btn">Write a New Entry</Link>
             </div>
-
-            <h2>My Journal Entries</h2>
-            <div className="entries">
-                {entries.sort((a: any, b: any) => b.ID - a.ID).map((entry: EntryModel) => (
-                    <Entry entryData={entry} key={entry.ID} />
-                ))}
+            <div className="entries-container">
+                <h2>My Journal Entries</h2>
+                <div className="entries">
+                    {entries.sort((a: any, b: any) => b.ID - a.ID).map((entry: EntryModel) => (
+                        <Entry entryData={entry} key={entry.ID} />
+                    ))}
+                </div>
             </div>
 
 

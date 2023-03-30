@@ -12,8 +12,19 @@ const Show = () => {
 
             <div className="content">
                 <div>
-                    <small>Created at: {new Date(entry.CreatedAt).toLocaleString()}
-                    </small>
+                    <div style={{ display: "flex" }}>
+                        <small>Created at: {new Date(entry.CreatedAt).toLocaleString()}</small>
+                        {/* Check if the entry has been updated and display the updated timestamp */}
+                        {entry.CreatedAt !== entry.UpdatedAt && (
+                            <small style={{ marginLeft: "8px", marginRight: "8px" }}>|</small>
+                        )}
+                        {entry.CreatedAt !== entry.UpdatedAt && (
+                            <small>
+                                Updated at: {new Date(entry.UpdatedAt).toLocaleString()}
+                            </small>
+                        )}
+                    </div>
+
                     <div
                         dangerouslySetInnerHTML={{ __html: entry.entry }}
                     />
