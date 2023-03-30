@@ -33,7 +33,7 @@ const Show = () => {
                         <Link to={`/updateentry/${entry.ID}`} className="btn">Update this Entry</Link>
 
                         <Form action={`/delete/${entry.ID}`} method="post">
-                            <button className="btn">Delete Journal Entry</button>
+                            <button className="btn">Delete this Entry</button>
                         </Form>
                     </div>
 

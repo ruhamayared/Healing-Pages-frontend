@@ -29,8 +29,8 @@ const UpdateEntryForm = () => {
             params: { id: entry.ID },
         })
 
-        // Navigate to the index page after updating the entry
-        navigate("/")
+        // Navigate to the show page after updating the entry
+        navigate(`/entry/${entry.ID}`)
     }
 
 
