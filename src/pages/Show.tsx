@@ -15,10 +15,10 @@ const Show = () => {
                     <div style={{ display: "flex", marginBottom: "1rem" }}>
                         <small>Created at: {new Date(entry.CreatedAt).toLocaleString()}</small>
                         {/* Check if the entry has been updated and display the updated timestamp */}
-                        {entry.CreatedAt !== entry.UpdatedAt && (
+                        {Math.floor(new Date(entry.CreatedAt).getTime() / 1000) !== Math.floor(new Date(entry.UpdatedAt).getTime() / 1000) && (
                             <small style={{ marginLeft: "8px", marginRight: "8px" }}>|</small>
                         )}
-                        {entry.CreatedAt !== entry.UpdatedAt && (
+                        {Math.floor(new Date(entry.CreatedAt).getTime() / 1000) !== Math.floor(new Date(entry.UpdatedAt).getTime() / 1000) && (
                             <small>
                                 Updated at: {new Date(entry.UpdatedAt).toLocaleString()}
                             </small>
