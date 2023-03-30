@@ -24,7 +24,7 @@
   content: "";
 
   /* Set the second background (top layer) with transparency */
-  background-color: rgb(230, 230, 250, 0.5);
+  background-color: rgb(230, 230, 250, 0.4);
 
   /* Position the pseudo-element on top of the body */
   position: absolute;
