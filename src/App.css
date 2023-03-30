@@ -185,6 +185,7 @@ small {
   font-size: 1rem;
   margin-top: 3rem;
   margin-left: 1rem;
+  margin-bottom: 1rem;
 }
 
 
@@ -221,6 +222,5 @@ p {
 
 small {
   font-size: 0.9rem;
-  margin-bottom: 1rem;
   display: block;
 }
