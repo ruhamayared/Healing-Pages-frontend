@@ -23,7 +23,7 @@ const UpdateEntryForm = () => {
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault()
 
-        // Send the updated entry to your UpdateAction
+        // Send the updated entry to UpdateAction
         await UpdateAction({
             request: { formData: () => ({ get: (key: string) => updatedEntry }) },
             params: { id: entry.ID },
