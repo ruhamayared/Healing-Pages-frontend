@@ -17,6 +17,7 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route path="/updateentry/:id" element={<UpdateEntryForm />} loader={showLoader} />
             <Route path="update/:id" action={UpdateAction} />
             <Route path="delete/:id" action={DeleteAction} />
+            {/* <Route path="/login" element={<LoginPage />} /> */}
         </Route>
     </>
 ))
