@@ -6,7 +6,7 @@ import 'react-quill/dist/quill.snow.css'
 import { CreateAction } from '../actions'
 
 // Define the CreateEntryForm component
-const CreateEntryForm: React.FC = () => {
+const CreateEntryForm = () => {
     // Declare state variable to store the entry content
     const [entry, setEntry] = useState<string>('')
     // Create a navigate function to navigate between routes
